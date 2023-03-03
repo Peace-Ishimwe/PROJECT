@@ -4,6 +4,10 @@ const app = express()
 // using express.json()
 app.use(express.json())
 
+//importing and using body-parser 
+import bodyParser from "body-parser";
+app.use(bodyParser.urlencoded({extended: true}))
+
 // evnvironmental variables file
 import dotenv from "dotenv"
 dotenv.config()
