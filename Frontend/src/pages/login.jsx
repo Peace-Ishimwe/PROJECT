@@ -1,9 +1,10 @@
 import React from 'react';
+import { Icon } from '@iconify/react';
 
 export default function Login() {
     return (
         <div class="flex items-center justify-center h-[100vh] w-fit mx-auto sm:w-full">
-    <form class="flex flex-col w-fit h-fit items-center justify-center" method="POST" action="/login">
+    <form class="flex flex-col w-fit h-fit items-center justify-center" method="POST">
       <h3 class="font-semibold text-2xl font-[Poppins]">Hi, Welcome Back! 👋</h3>
       <label class="self-start w-10/12 mt-5 mb-1 pl-2 mx-auto" for="email">Email</label>
       <input
@@ -38,13 +39,13 @@ export default function Login() {
       </div>
       <button class="bg-blue-500 mt-5 w-10/12 h-12 rounded-md flex items-center pl-3 text-white font-semibold"
         type="submit">
-        <iconify-icon width="32px" icon="gg:facebook"></iconify-icon>
+        <Icon width="32px" icon="gg:facebook"/>
         <span class="mx-auto">Login with Facebook</span>
       </button>
       <button
         class="border-2 border-slate-400 bg-white mt-5 w-10/12 h-12 rounded-md flex items-center pl-3 text-slate-600 font-semibold"
         type="submit">
-        <img src="./Images/Google Logo.png" />
+        <Icon width={'30px'} className='text-blue-500' icon="ph:google-logo-fill" />
         <span class="mx-auto">Login with Google</span>
       </button>
       <div class="flex gap-2 mt-8"><span class="font-semibold text-slate-600 ">Don't have an account?</span> <a

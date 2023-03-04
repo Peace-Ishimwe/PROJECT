@@ -1,9 +1,10 @@
 import React from "react";
+import { Icon } from '@iconify/react';
 
 export default function Signup() {
     return (
         <div class="flex items-center justify-center h-[100vh] w-fit mx-auto sm:w-full">
-      <form class="flex flex-col w-fit h-fit items-center justify-center" method="POST" action="/signup">
+      <form class="flex flex-col w-fit h-fit items-center justify-center" method="POST">
         <h3 class="font-semibold text-3xl">Create an account</h3>
         <p class="text-md font-normal mb-3">Connect with your friends today!</p>
         <input
@@ -55,17 +56,17 @@ export default function Signup() {
           class="bg-blue-500 mt-5 w-10/12 h-12 rounded-md flex items-center pl-3 text-white font-semibold"
           type="submit"
         >
-          <iconify-icon width="32px" icon="gg:facebook"></iconify-icon>
+          <Icon width="32px" icon="gg:facebook"/>
           <span class="mx-auto">Signup with Facebook</span>
         </button>
         <button
           class="border-2 border-slate-400 bg-white mt-5 w-10/12 h-12 rounded-md flex items-center pl-3 text-slate-600 font-semibold"
           type="submit"
         >
-          <img src="./Images/Google Logo.png" />
+          <Icon width={'30px'} className='text-blue-500' icon="ph:google-logo-fill" />
           <span class="mx-auto">Signup with Google</span>
         </button>
-        <div class="flex gap-2 mt-8"><span class="font-semibold text-slate-600 ">Already have an account?</span> <a class="text-blue-700 font-semibold hover:underline" href="/login">Login</a></div>
+        <div class="flex gap-2 mt-8"><span class="font-semibold text-slate-600 ">Already have an account?</span> <a class="text-blue-700 font-semibold hover:underline" href="/">Login</a></div>
       </form>
     </div>
     );
