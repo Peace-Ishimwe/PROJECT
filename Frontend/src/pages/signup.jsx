@@ -2,92 +2,71 @@ import React from "react";
 
 export default function Signup() {
     return (
-        <div>
-            <div className="flex flex-col items-center min-h-screen pt-6 sm:justify-center sm:pt-0 bg-gray-50">
-                <div className="w-full px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-lg sm:rounded-lg">
-                    <form>
-                        <div>
-                            <label
-                                htmlFor="name"
-                                className="block text-sm font-medium text-gray-700 undefined"
-                            >
-                                Name
-                            </label>
-                            <div className="flex flex-col items-start">
-                                <input
-                                    type="text"
-                                    name="name"
-                                    className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                />
-                            </div>
-                        </div>
-                        <div className="mt-4">
-                            <label
-                                htmlFor="email"
-                                className="block text-sm font-medium text-gray-700 undefined"
-                            >
-                                Email
-                            </label>
-                            <div className="flex flex-col items-start">
-                                <input
-                                    type="email"
-                                    name="email"
-                                    className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                />
-                            </div>
-                        </div>
-                        <div className="mt-4">
-                            <label
-                                htmlFor="password"
-                                className="block text-sm font-medium text-gray-700 undefined"
-                            >
-                                Password
-                            </label>
-                            <div className="flex flex-col items-start">
-                                <input
-                                    type="password"
-                                    name="password"
-                                    className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                />
-                            </div>
-                        </div>
-                        <div className="mt-4">
-                            <label
-                                htmlFor="password_confirmation"
-                                className="block text-sm font-medium text-gray-700 undefined"
-                            >
-                                Confirm Password
-                            </label>
-                            <div className="flex flex-col items-start">
-                                <input
-                                    type="password"
-                                    name="password_confirmation"
-                                    className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                />
-                            </div>
-                        </div>
-                        <a
-                            href="#"
-                            className="text-xs text-purple-600 hover:underline"
-                        >
-                            Forget Password?
-                        </a>
-                        <div className="flex items-center mt-4">
-                            <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
-                                Register
-                            </button>
-                        </div>
-                    </form>
-                    <div className="mt-4 text-grey-600">
-                        Already have an account?{" "}
-                        <span>
-                            <a className="text-purple-600 hover:underline" href="/login">
-                                Log in
-                            </a>
-                        </span>
-                    </div>
-                </div>
-            </div>
+        <div class="flex items-center justify-center h-[100vh] w-fit mx-auto sm:w-full">
+      <form class="flex flex-col w-fit h-fit items-center justify-center" method="POST" action="/signup">
+        <h3 class="font-semibold text-3xl">Create an account</h3>
+        <p class="text-md font-normal mb-3">Connect with your friends today!</p>
+        <input
+          class="border-2 border-slate-400 mt-5 w-10/12 h-12 rounded-md flex text-center outline-none focus:outline-slate-500 focus:border-0 text-md text-slate-900 placeholder-slate-600"
+          type="text"
+          name="username"
+          id="username"
+          placeholder="Enter Your Username"
+        />
+        <input
+          class="border-2 border-slate-400 mt-5 w-10/12 h-12 rounded-md flex text-center outline-none focus:outline-slate-500 focus:border-0 text-md text-slate-900 placeholder-slate-600"
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Enter Your Email"
+        />
+        <input
+          class="border-2 border-slate-400 mt-5 w-10/12 h-12 rounded-md flex text-center outline-none focus:outline-slate-500 focus:border-0 text-md text-slate-900 placeholder-slate-600"
+          type="tel"
+          name="tel"
+          id="tel"
+          placeholder="Enter Your Phone Number"
+        />
+        <div
+          class="border-2 border-slate-400 mt-5 w-10/12 h-12 rounded-md flex items-center justify-center outline-none focus-within:outline-slate-500 focus-within:border-0 text-md text-slate-900 placeholder-slate-600 pr-5"
+        >
+          <input
+            class="w-full h-full rounded-md flex text-center outline-none text-md text-slate-900 placeholder-slate-600 password"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Enter Your Password"
+          />
+          <iconify-icon class="hide cursor-pointer hidden" icon="mdi:password-off"></iconify-icon>
+          <iconify-icon class="show cursor-pointer" icon="mdi:password"></iconify-icon>
         </div>
+        <button
+          class="bg-blue-600 mt-5 w-10/12 h-12 rounded-md flex items-center justify-center text-white font-semibold"
+          type="submit"
+        >
+          Sign Up
+        </button>
+        <div class="flex items-center gap-5 w-10/12 whitespace-nowrap mt-7">
+          <hr class="w-36 border-[0.1px] border-slate-400" />
+          Or with
+          <hr class="w-36 border-[0.1px] border-slate-400" />
+        </div>
+        <button
+          class="bg-blue-500 mt-5 w-10/12 h-12 rounded-md flex items-center pl-3 text-white font-semibold"
+          type="submit"
+        >
+          <iconify-icon width="32px" icon="gg:facebook"></iconify-icon>
+          <span class="mx-auto">Signup with Facebook</span>
+        </button>
+        <button
+          class="border-2 border-slate-400 bg-white mt-5 w-10/12 h-12 rounded-md flex items-center pl-3 text-slate-600 font-semibold"
+          type="submit"
+        >
+          <img src="./Images/Google Logo.png" />
+          <span class="mx-auto">Signup with Google</span>
+        </button>
+        <div class="flex gap-2 mt-8"><span class="font-semibold text-slate-600 ">Already have an account?</span> <a class="text-blue-700 font-semibold hover:underline" href="/login">Login</a></div>
+      </form>
+    </div>
     );
 }
