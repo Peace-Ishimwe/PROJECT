@@ -8,27 +8,29 @@ export default function Signup() {
     const [tel , setTel] = useState("")
     const [password , setPassword] = useState("")
     const [confirmPassword , setConfirmPassword] = useState("")
+    const [error , setError] = useState("")
 
-    const handleSubmit = async() =>{
-        e.preventDefault()
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         try {
-            await axios.post('http://localhost:3000/signup' , {
-                username , email , tel , password , confirmPassword
-            })
-            .then((res)=>{
-                console.log(res.data)
-            })
-            .catch((e)=>{
-                console.log(e.message);
-            })
-            console.log(res.data)
-        } catch (err) {
-            console.log(err.message);
+          const response = await axios.post("http://localhost:3000/signup", {
+            username,
+            email,
+            tel,
+            password,
+            confirmPassword,
+          }).then(data => data.json()).catch((err) => {
+            console.log(err.response.data)
+            setError(err.response.data)
+        })
+        //   console.log(response.data);
+        } catch (error) {
+          console.log(error);
         }
-    }
+      };  
 
     return (
-        <div className="flex items-center justify-center h-[100vh] w-fit mx-auto sm:w-full">
+        <div className="flex items-center justify-center h-[100vh] w-fit max-w-fit mx-auto sm:w-full">
             <form
                 className="flex flex-col w-fit h-fit items-center justify-center"
                 method="POST"
@@ -58,7 +60,7 @@ export default function Signup() {
                     name="tel"
                     id="tel"
                     placeholder="Enter Your Phone Number"
-                    onChange={(e)=>{setTel(e.target.email)}}
+                    onChange={(e)=>{setTel(e.target.value)}}
                 />
                 <div className="border-2 border-slate-400 mt-5 w-10/12 h-12 rounded-md flex items-center justify-center outline-none focus-within:outline-slate-500 focus-within:border-0 text-md text-slate-900 placeholder-slate-600 pr-5">
                     <input
@@ -80,9 +82,12 @@ export default function Signup() {
                         onChange={(e)=>{setConfirmPassword(e.target.value)}}
                     />
                 </div>
+
+                <p className="text-red-600 w-[300px]">{error}</p>
+
                 <button
                     className="bg-blue-600 mt-5 w-10/12 h-12 rounded-md flex items-center justify-center text-white font-semibold"
-                    type="submit"
+                    type="submit"  onClick={handleSubmit}
                 >
                     Sign Up
                 </button>

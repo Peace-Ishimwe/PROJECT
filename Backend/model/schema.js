@@ -1,8 +1,13 @@
 import mongoose from "mongoose";
-import Joi from 'joi'
+import shortid from "shortid";
 
+const id  = shortid.generate()
 
 const signupSchema = new mongoose.Schema({
+  _id: {
+    type: String,
+    default: shortid.generate
+  },
   username: {
     type: String,
     required: true,
