@@ -34,5 +34,5 @@ const signupSchema = new mongoose.Schema({
     collection: "users"
 });
 
-const Signup = mongoose.model('Signup' , signupSchema , "users")
-export default Signup
+const User = mongoose.model('Signup' , signupSchema , "users")
+export default User

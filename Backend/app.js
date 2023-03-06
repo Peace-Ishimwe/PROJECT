@@ -11,6 +11,9 @@ connectDB()
 app.use(express.json())
 import route from "./routes/routes.js"
 app.use('/' , route)
+import swaggerUi from "swagger-ui-express"
+import swaggerJson from "./swagger.json"assert { type: 'json' };
+app.use('/swagger' , swaggerUi.serve , swaggerUi.setup(swaggerJson))
 app.listen(process.env.PORT , ()=>{
     console.log(`Listenning on port ${process.env.PORT}`);
 })

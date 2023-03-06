@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import axios from "axios"
+import { useNavigate } from "react-router-dom";
+import Google from "../images/Google Logo.png"
+
 export default function Signup() {
+
+    const history = useNavigate()
 
     const [username , setUsername] = useState("")
     const [email , setEmail] = useState("")
@@ -9,6 +14,7 @@ export default function Signup() {
     const [password , setPassword] = useState("")
     const [confirmPassword , setConfirmPassword] = useState("")
     const [error , setError] = useState("")
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -19,16 +25,15 @@ export default function Signup() {
             tel,
             password,
             confirmPassword,
-          }).then(data => data.json()).catch((err) => {
+          }).then(()=>{
+            history('/welcomenewuser')
+          }).catch((err) => {
             console.log(err.response.data)
             setError(err.response.data)
-        })
-        //   console.log(response.data);
-        } catch (error) {
+        })} catch (error) {
           console.log(error);
         }
       };  
-
     return (
         <div className="flex items-center justify-center h-[100vh] w-fit max-w-fit mx-auto sm:w-full">
             <form
@@ -45,6 +50,7 @@ export default function Signup() {
                     id="username"
                     placeholder="Enter Your Username"
                     onChange={(e)=>{setUsername(e.target.value)}}
+                    required
                 />
                 <input
                     className="border-2 border-slate-400 mt-5 w-10/12 h-12 rounded-md flex text-center outline-none focus:outline-slate-500 focus:border-0 text-md text-slate-900 placeholder-slate-600"
@@ -53,6 +59,7 @@ export default function Signup() {
                     id="email"
                     placeholder="Enter Your Email"
                     onChange={(e)=>{setEmail(e.target.value)}}
+                    required
                 />
                 <input
                     className="border-2 border-slate-400 mt-5 w-10/12 h-12 rounded-md flex text-center outline-none focus:outline-slate-500 focus:border-0 text-md text-slate-900 placeholder-slate-600"
@@ -61,6 +68,7 @@ export default function Signup() {
                     id="tel"
                     placeholder="Enter Your Phone Number"
                     onChange={(e)=>{setTel(e.target.value)}}
+                    required
                 />
                 <div className="border-2 border-slate-400 mt-5 w-10/12 h-12 rounded-md flex items-center justify-center outline-none focus-within:outline-slate-500 focus-within:border-0 text-md text-slate-900 placeholder-slate-600 pr-5">
                     <input
@@ -70,6 +78,7 @@ export default function Signup() {
                         id="password"
                         placeholder="Enter Your Password"
                         onChange={(e)=>{setPassword(e.target.value)}}
+                        required
                     />
                 </div>
                 <div className="border-2 border-slate-400 mt-5 w-10/12 h-12 rounded-md flex items-center justify-center outline-none focus-within:outline-slate-500 focus-within:border-0 text-md text-slate-900 placeholder-slate-600 pr-5">
@@ -80,14 +89,15 @@ export default function Signup() {
                         id="confirmPassword"
                         placeholder="Confirm Your Password"
                         onChange={(e)=>{setConfirmPassword(e.target.value)}}
+                        required
                     />
                 </div>
 
-                <p className="text-red-600 w-[300px]">{error}</p>
+                {error && <p className="text-red-600 w-[300px] mt-2 flex gap-2"><Icon icon="gg:danger" />{error}</p>}
 
                 <button
                     className="bg-blue-600 mt-5 w-10/12 h-12 rounded-md flex items-center justify-center text-white font-semibold"
-                    type="submit"  onClick={handleSubmit}
+                    type="submit"
                 >
                     Sign Up
                 </button>
@@ -107,14 +117,14 @@ export default function Signup() {
                     className="border-2 border-slate-400 bg-white mt-5 w-10/12 h-12 rounded-md flex items-center pl-3 text-slate-600 font-semibold"
                     type="submit"
                 >
-                    <Icon width={"30px"} className="text-blue-500" icon="mdi:google" />
+                    <img src={Google} alt="google logo png" />
                     <span className="mx-auto">Signup with Google</span>
                 </button>
                 <div className="flex gap-2 mt-8">
                     <span className="font-semibold text-slate-600 ">
                         Already have an account?
                     </span>{" "}
-                    <a className="text-blue-700 font-semibold hover:underline" href="/">
+                    <a className="text-blue-700 font-semibold hover:underline" href="/login">
                         Login
                     </a>
                 </div>
